@@ -1,0 +1,17 @@
+{
+  "name": "the-internet-cypress",
+  "version": "1.0.0",
+  "description": "Practical exercise using cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Edgar Aguirre",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "cypress": "^13.8.1",
+    "cypress-image-snapshot": "^4.0.1"
+  }
+}
