@@ -1,6 +1,8 @@
 const { defineConfig } = require("cypress");
 const {addMatchImageSnapshotPlugin}=require("cypress-image-snapshot/plugin");
 const values={};
+const fs = require('fs');
+
 
 
 module.exports = defineConfig({
@@ -19,6 +21,11 @@ module.exports = defineConfig({
         obtener(key){
           console.log('values',values);
           return values[key] ?? 'No hay valor';
+        },
+        //Plugin para escribir en un documento externo
+        writeToFile: ({ fileName, content }) => {
+          fs.writeFileSync(fileName, content, 'utf8');
+          return null;
         }
       });
 
@@ -31,7 +38,7 @@ module.exports = defineConfig({
             //   runMode:2,
             //   openMode:0
             // },
-        baseUrl:"https://pokedexpokemon.netlify.app",
+        baseUrl:"https://the-internet.herokuapp.com/",
         env:{
           user:"username",
           password:"password",
