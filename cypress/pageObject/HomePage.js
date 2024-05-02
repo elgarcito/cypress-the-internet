@@ -1,6 +1,12 @@
+import AddRemoveElementPage from "../pageObject/AddRemoveElementPage";
 class HomePage {
     constructor(){
         this.fullList="ul>li>a";
+        this.addRemoveElementLink='ul > :nth-child(2)>a';
+    }
+
+    visitHomePage(){
+        cy.visit("/");
     }
 
     getElementOfList(){
@@ -16,8 +22,15 @@ class HomePage {
             cy.task('writeToFile', { fileName: 'output.txt', content: texts.join('\n') });
         });
     }
+
+    clickAddRemoveElementLink(){
+        cy.get(this.addRemoveElementLink).click();
+        const addRemoveElementPage= new AddRemoveElementPage();
+        //return new AddRemoveElementPage();
+        return addRemoveElementPage;
+    }
 }
 
-export const homePage=new HomePage();
+export default HomePage;
 
 
