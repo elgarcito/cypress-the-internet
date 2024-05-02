@@ -1,7 +1,9 @@
-import {homePage} from "../pageObject/HomePage";
+import HomePage from "../pageObject/HomePage";
 describe('Home page all test', () => {
+
     it('Test each link with a previous saved fixture', () => {
-        cy.visit("/");
+        const homePage=new HomePage();
+        homePage.visitHomePage();
         cy.fixture('links').then(links=>{
             let index=0;
             for (let key in links) {
