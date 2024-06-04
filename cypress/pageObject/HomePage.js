@@ -1,8 +1,10 @@
 import AddRemoveElementPage from "../pageObject/AddRemoveElementPage";
+import FormAuthenticationPage from "../pageObject/FormAuthenticationPage";
 class HomePage {
     constructor(){
         this.fullList="ul>li>a";
         this.addRemoveElementLink='ul > :nth-child(2)>a';
+        this.formAuthenticationLink=':nth-child(21) > a'
     }
 
     visitHomePage(){
@@ -28,6 +30,13 @@ class HomePage {
         const addRemoveElementPage= new AddRemoveElementPage();
         //return new AddRemoveElementPage();
         return addRemoveElementPage;
+    }
+
+    clickFormAuthenticationLink(){
+        cy.get(this.formAuthenticationLink).click();
+        const formAuthenticationPage= new FormAuthenticationPage();
+        //return new FormAuthenticationPage();
+        return formAuthenticationPage;
     }
 }
 
