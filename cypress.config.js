@@ -27,8 +27,11 @@ module.exports = defineConfig({
           fs.writeFileSync(fileName, content, 'utf8');
           return null;
         }
-      });
 
+      });
+      config.env.username = 'tomsmith';
+      config.env.password = 'SuperSecretPassword!';
+      
       return config;
       //Lo agrego aca para usarlo
     },
